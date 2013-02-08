@@ -49,7 +49,7 @@ class TagManager {
                 return;
             }
             , deleteHandler: function(tagManager, tag, isEmpty?) {
-                return;
+                return true;
             }
             , createElementHandler: function(tagManager, tagElement, isImport?) {
                 tagManager.$element.before(tagElement);
@@ -121,8 +121,10 @@ class TagManager {
     delete(tagId: string, isEmpty?: bool) {
         var tagString = $('#' + tagId).attr('tag');
 
-        if (this.options.deleteHandler)
-            this.options.deleteHandler(this, tagString, isEmpty);
+        if (this.options.deleteHandler) {
+            var canDelete = this.options.deleteHandler(this, tagString, isEmpty);
+            if (!canDelete) return;
+        }
 
         if (this.options.strategy = 'ajax'
             && this.options.ajaxDelete
