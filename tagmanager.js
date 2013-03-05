@@ -68,7 +68,7 @@ var TagManager = (function () {
             var canDelete = this.options.deleteHandler(this, tagString, isEmpty);
             if (!canDelete) return;
         }
-        if(this.options.strategy = 'ajax' && this.options.ajaxDelete && !isEmpty) {
+        if(this.options.strategy == 'ajax' && this.options.ajaxDelete && !isEmpty) {
             $.ajax({
                 url: this.options.ajaxDelete,
                 type: 'post',
@@ -103,7 +103,7 @@ var TagManager = (function () {
             this.$element.val('');
             return;
         }
-        if(this.options.strategy = 'ajax' && this.options.ajaxCreate && !isImport) {
+        if(this.options.strategy == 'ajax' && this.options.ajaxCreate && !isImport) {
             $.ajax({
                 url: this.options.ajaxCreate,
                 type: 'post',

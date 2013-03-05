@@ -126,7 +126,7 @@ class TagManager {
             if (!canDelete) return;
         }
 
-        if (this.options.strategy = 'ajax'
+        if (this.options.strategy == 'ajax'
             && this.options.ajaxDelete
             && !isEmpty) {
 
@@ -176,7 +176,7 @@ class TagManager {
             return;
         }
 
-        if (this.options.strategy = 'ajax'
+        if (this.options.strategy == 'ajax'
             && this.options.ajaxCreate
             && !isImport) {
 
